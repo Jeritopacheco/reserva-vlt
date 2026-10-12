@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#772C89">
+  <title>Agenda tu valoración · Violeta Luz Therapy</title>
+  <meta name="description" content="Da el primer paso: responde 3 preguntas y habla directo con Carlos para agendar tu valoración gratuita. Sesiones en Fort Lauderdale y online.">
+  <meta property="og:title" content="Agenda tu valoración · Violeta Luz Therapy">
+  <meta property="og:description" content="3 preguntas y hablas directo con Carlos. Agenda tu valoración gratuita para una sesión en Fort Lauderdale o desde donde estés.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* Allura and Montserrat can be replaced later with licensed Ragland and Gotham Light. */
+    :root { color-scheme: light; --violet: #772C89; --text: #3E3E3E; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; background: #FFF; color: var(--text); font-family: Montserrat, sans-serif; font-weight: 400; line-height: 1.65; }
+    a, button, input { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    a { color: var(--violet); text-underline-offset: 4px; }
+    :focus-visible { outline: 3px solid #3E3E3E; outline-offset: 5px; }
+    header { padding: calc(24px + env(safe-area-inset-top)) 20px 44px; text-align: center; background: linear-gradient(90deg, #772C89, #C6226C); color: #FFF; }
+    .logo { display: block; width: 145px; height: auto; margin: 0 auto 8px; }
+    h1 { margin: 0; font: 400 clamp(48px, 12vw, 66px)/1.15 Allura, cursive; }
+    main { width: 100%; flex: 1; padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
+    .card { position: relative; margin: -20px auto 0; max-width: 460px; padding: 28px 24px 32px; border-radius: 20px; background: #FFF; box-shadow: 0 10px 36px rgba(62, 32, 69, .12); }
+    .progress { height: 4px; margin-bottom: 26px; border-radius: 999px; background: #EDE4EF; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--violet); width: 0; }
+    .step-label { margin: -16px 0 20px; font-size: 12px; text-align: right; }
+    .back { display: inline-block; min-height: 44px; padding: 8px 0; margin-bottom: 10px; font-size: 14px; }
+    h2 { margin: 0 0 24px; color: var(--violet); font-size: 22px; font-weight: 400; line-height: 1.45; text-wrap: pretty; overflow-wrap: anywhere; }
+    p { margin: 0 0 24px; }
+    .intro { text-align: center; font-size: 21px; font-weight: 300; padding: 12px 0; }
+    .actions { display: grid; gap: 14px; }
+    .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 14px 20px; border: 2px solid transparent; border-radius: 999px; background: #AA00AA; color: #FFF; font: 600 16px/1.45 'Open Sans', sans-serif; text-align: center; text-decoration: none; cursor: pointer; transition: background-color 150ms, color 150ms; overflow-wrap: anywhere; }
+    .button:hover { background: var(--violet); }
+    .option { display: block; border-color: var(--violet); background: #FFF; color: var(--violet); }
+    .option:hover, .option[aria-pressed="true"] { background: var(--violet); color: #FFF; }
+    .option small { display: block; margin-top: 5px; font: 400 12px/1.5 Montserrat, sans-serif; }
+    .whatsapp { background: #25D366; color: #153820; }
+    .whatsapp:hover { background: #1FBD5A; }
+    .whatsapp svg { width: 25px; height: 25px; flex-shrink: 0; }
+    label { display: block; color: var(--violet); margin-bottom: 10px; }
+    input { width: 100%; min-height: 56px; border: 2px solid #9F88A5; border-radius: 12px; padding: 12px 16px; background: #FFF; color: var(--text); font: 400 18px/1.5 Montserrat, sans-serif; }
+    input[aria-invalid="true"] { border-color: #A11B36; }
+    .error { color: #A11B36; font-size: 14px; min-height: 24px; margin: 8px 0 18px; }
+    .restart { display: block; text-align: center; padding: 12px; margin-top: 12px; min-height: 44px; font-size: 14px; }
+    .enter { animation: enter 200ms ease-out; }
+    @keyframes enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    footer { padding: 24px max(20px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); background: #282B30; color: #FFF; text-align: center; font-size: 12px; }
+    footer p { margin: 0; }
+    footer a { display: inline-block; color: #FFF; padding: 10px; }
+    .skip { position: absolute; top: 8px; left: 8px; z-index: 2; padding: 10px; background: #FFF; transform: translateY(-150%); }
+    .skip:focus { transform: translateY(0); }
+    [hidden] { display: none !important; }
+    @media (max-width: 380px) { .card { padding: 24px 18px 28px; } h2 { font-size: 20px; } .button { padding: 14px 16px; } }
+    @media (prefers-reduced-motion: reduce) { .enter { animation: none; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Ir al contenido</a>
+  <header>
+    <img class="logo" src="logo_vlt_blanco.png" alt="Violeta Luz Therapy" width="1347" height="1052" fetchpriority="high">
+    <h1>Da el primer paso</h1>
+  </header>
+  <main id="main">
+    <div class="card">
+      <div id="progress" class="progress" role="progressbar" aria-label="Progreso" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" hidden><div id="progress-fill" class="progress-fill"></div></div>
+      <p id="step-label" class="step-label" hidden></p>
+      <section id="question" aria-live="polite" aria-atomic="true"></section>
+      <noscript>
+        <p>Habla directo con Carlos para agendar tu valoración gratuita.</p>
+        <a class="button whatsapp" href="https://wa.me/17543046972">Escribirle a Carlos por WhatsApp</a>
+      </noscript>
+    </div>
+  </main>
+  <footer><p>Violeta Luz Therapy · Fort Lauderdale, FL</p><a id="website-link" href="https://www.violetaluztherapy.com">Visita nuestra web</a></footer>
+  <script>
+    // Configuration: edit these constants to update the offer and destinations.
+    const WHATSAPP_NUMBER = "17543046972";
+    const ADDRESS = "2787 E Oakland Park Blvd, Fort Lauderdale, FL 33306";
+    const PRICE_TEXT = "desde $200";
+    const WEBSITE = "https://www.violetaluztherapy.com";
+
+    const question = document.getElementById('question');
+    const progress = document.getElementById('progress');
+    const fill = document.getElementById('progress-fill');
+    const stepLabel = document.getElementById('step-label');
+    const history = [];
+    let screen = 'intro';
+    let modality = '';
+    let name = '';
+    document.getElementById('website-link').href = WEBSITE;
+
+    function element(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    }
+    function button(text, action, secondary = true, selected = false) {
+      const node = element('button', text, 'button' + (secondary ? ' option' : ''));
+      node.type = 'button';
+      if (secondary) node.setAttribute('aria-pressed', String(selected));
+      node.addEventListener('click', action);
+      return node;
+    }
+    function go(next) {
+      history.push(screen);
+      screen = next;
+      render();
+    }
+    function render(initial = false) {
+      question.replaceChildren();
+      const panel = element('div', '', 'enter');
+      question.append(panel);
+      const step = { intro: 0, modality: 1, arrival: 1, online: 1, price: 3, name: 4, info: 0 }[screen];
+      progress.hidden = step === 0;
+      stepLabel.hidden = step === 0;
+      progress.setAttribute('aria-valuenow', String(step));
+      progress.setAttribute('aria-valuetext', `Paso ${step} de 4`);
+      fill.style.width = `${step * 25}%`;
+      stepLabel.textContent = `Paso ${step} de 4`;
+      if (history.length) {
+        const back = element('a', '← Atrás', 'back');
+        back.href = '#';
+        back.addEventListener('click', event => { event.preventDefault(); screen = history.pop(); render(); });
+        panel.append(back);
+      }
+      let heading;
+      function title(text) {
+        heading = element('h2', text);
+        heading.tabIndex = -1;
+        panel.append(heading);
+      }
+      const actions = element('div', '', 'actions');
+      if (screen === 'intro') {
+        title('3 preguntas y hablas directo con Carlos.');
+        heading.className = 'intro';
+        actions.append(button('Empezar', () => go('modality'), false));
+      } else if (screen === 'modality') {
+        title('¿Cómo prefieres tu sesión?');
+        const inPerson = button('En persona en Fort Lauderdale', () => { modality = 'En persona en Fort Lauderdale'; go('arrival'); }, true, modality === 'En persona en Fort Lauderdale');
+        inPerson.append(element('small', ADDRESS));
+        actions.append(inPerson, button('Online, desde donde estés', () => { modality = 'Online'; go('price'); }, true, modality === 'Online'));
+      } else if (screen === 'arrival') {
+        title(`La consulta está en ${ADDRESS}. ¿Puedes llegar ahí?`);
+        actions.append(button('Sí, puedo llegar', () => { modality = 'En persona en Fort Lauderdale'; go('price'); }), button('Me queda difícil', () => go('online')));
+      } else if (screen === 'online') {
+        title('También puedes hacerla online, con el mismo proceso.');
+        actions.append(button('Sí, online', () => { modality = 'Online'; go('price'); }), button('Prefiero no seguir', () => go('info')));
+      } else if (screen === 'price') {
+        title(`Las sesiones duran de 2 a 3 horas y cuestan ${PRICE_TEXT}. Antes hay una llamada de valoración gratuita. ¿Te parece bien?`);
+        actions.append(button('Sí, me parece bien', () => go('name')), button('Ahora no', () => go('info')));
+      } else if (screen === 'name') {
+        title('¿Cómo te llamas?');
+        const form = element('form');
+        form.noValidate = true;
+        const label = element('label', 'Tu nombre');
+        label.htmlFor = 'given-name';
+        const input = element('input');
+        input.id = 'given-name';
+        input.name = 'given-name';
+        input.type = 'text';
+        input.autocomplete = 'given-name';
+        input.required = true;
+        input.minLength = 2;
+        input.maxLength = 40;
+        input.value = name;
+        input.setAttribute('aria-describedby', 'name-error');
+        const error = element('p', '', 'error');
+        error.id = 'name-error';
+        error.setAttribute('aria-live', 'polite');
+        input.addEventListener('input', () => { name = input.value; error.textContent = ''; input.removeAttribute('aria-invalid'); });
+        const submit = element('button', '', 'button whatsapp');
+        submit.type = 'submit';
+        submit.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.5L3 21l1.6-4.9A8.5 8.5 0 1 1 20.5 11.8Z"/><path d="M8 7.3c-.8.6-.9 1.5-.4 2.6 1.2 2.8 3.2 4.8 6 6 .9.4 2.1.1 2.7-.7l.5-1.1-2.5-1.2-.9 1c-1.8-.8-3-2-3.8-3.7l1-.9L9.5 7Z"/></svg><span>Escribirle a Carlos por WhatsApp</span>';
+        form.append(label, input, error, submit);
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+          name = input.value.trim();
+          if (Array.from(name).length < 2 || Array.from(name).length > 40) {
+            error.textContent = 'Escribe tu nombre con entre 2 y 40 caracteres.';
+            input.setAttribute('aria-invalid', 'true');
+            input.focus();
+            return;
+          }
+          const message = `Hola Carlos, soy ${name}. Vi tu anuncio y quiero agendar mi valoración gratuita.\n- Modalidad: ${modality}\n- Conozco el valor de la sesión (${PRICE_TEXT}) y me parece bien.`;
+          window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        });
+        panel.append(form);
+      } else if (screen === 'info') {
+        title('Gracias por tu tiempo.');
+        panel.append(element('p', 'Carlos trabaja con hipnosis para ayudarte a soltar lo que te detiene. Cuando estés listo, aquí estaremos.'));
+        const more = element('a', 'Conocer más', 'button');
+        more.href = WEBSITE;
+        actions.append(more);
+        const restart = element('a', 'Volver a empezar', 'restart');
+        restart.href = '#';
+        restart.addEventListener('click', event => { event.preventDefault(); history.length = 0; modality = ''; name = ''; screen = 'intro'; render(); });
+        actions.append(restart);
+      }
+      panel.append(actions);
+      if (!initial && heading) heading.focus({ preventScroll: true });
+    }
+    render(true);
+  </script>
+</body>
+</html>
