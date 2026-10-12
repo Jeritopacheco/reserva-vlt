@@ -155,7 +155,14 @@
           return;
         }
         const message = `Hola Carlos, soy ${name}. Vi tu anuncio y quiero agendar mi valoración gratuita.\n- Modalidad: ${modality}\n- Conozco el valor de la sesión (${PRICE_TEXT}) y me parece bien.`;
-        openUrl(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        // Evento de Meta "Contact" (sin datos de la persona). Espera un instante para que salga antes de abrir WhatsApp.
+        if (typeof window.fbq === 'function') {
+          try { window.fbq('track', 'Contact'); } catch (e) {}
+          setTimeout(() => openUrl(url), 400);
+        } else {
+          openUrl(url);
+        }
       });
       panel.append(form);
     } else if (screen === 'info') {
