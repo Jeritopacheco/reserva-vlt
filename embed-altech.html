@@ -2,7 +2,7 @@
      Fuente: landing/reserva/index.html. Todo va dentro de #vltr para no tocar el resto de la web. -->
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 <style>
-  #vltr { --violet: #772C89; --text: #3E3E3E; color: var(--text); font-family: Montserrat, sans-serif; font-weight: 400; line-height: 1.65; background: linear-gradient(90deg, #772C89, #C6226C); padding: 32px 16px 48px; text-align: left; }
+  #vltr { --violet: #772C89; --text: #3E3E3E; color: var(--text); font-family: Montserrat, sans-serif; font-weight: 400; line-height: 1.65; background: linear-gradient(90deg, #772C89, #C6226C); padding: 120px 16px 48px; text-align: left; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); min-height: 80vh; }
   #vltr * { box-sizing: border-box; }
   #vltr a, #vltr button, #vltr input { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
   #vltr a { color: var(--violet); text-underline-offset: 4px; }
@@ -33,7 +33,7 @@
   #vltr .enter { animation: vltr-enter 200ms ease-out; }
   @keyframes vltr-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   #vltr [hidden] { display: none !important; }
-  @media (min-width: 768px) { #vltr { padding: 48px 16px 64px; } }
+  @media (min-width: 768px) { #vltr { padding: 150px 16px 72px; } }
   @media (max-width: 380px) { #vltr .card { padding: 24px 18px 28px; } #vltr h2 { font-size: 20px; } #vltr .button { padding: 14px 16px; } }
   @media (prefers-reduced-motion: reduce) { #vltr .enter { animation: none; } #vltr .button { transition: none; } }
 </style>
